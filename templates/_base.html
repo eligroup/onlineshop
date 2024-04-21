@@ -1,5 +1,9 @@
+
 <!doctype html>
+{% load account %}
 <html lang="en">
+
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,6 +15,13 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
+  {% if user.is_authenticated %}
+      <p>
+       <span> hello! {{ user.username }}</span> | <a href="{% url 'account_logout' %}">log out</a>
+      </p>
+  {% else %}
+      <a href="{% url 'account_login' %}">log in</a> | <a href="{% url 'account_signup' %}">sign up</a>
+  {% endif %}
   {% block content %}{% endblock %}
 
     <!-- Optional JavaScript; choose one of the two! -->
