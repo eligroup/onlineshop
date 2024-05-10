@@ -1,6 +1,7 @@
 {% extends '_base.html'%}
 {% load crispy_forms_tags %}
 {% load static %}
+{% load comment_tags %}
 {% block title %}product detail{% endblock %}
 {% block content %}
            <!-- Breadcrumb area Start -->
@@ -113,7 +114,8 @@
                                             <ul class="review__list">
                                             <h1>{{ product.comments.all.count }}</h1>
                                             <h1>تعداد{{ product.comment_count.count}}</h1>
-                                                {% for comment in product.comments.all %}
+                                            <h2> تعداد اکتیوها{{ product.comments.all|only_active_comments |length }}</h2>
+                                                {% for comment in product.comments.all|only_active_comments %}
                                                 <li class="review__item">
                                                     <div class="review__container">
                                                         <div class="review__text">

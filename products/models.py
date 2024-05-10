@@ -19,6 +19,10 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.pk])
 
+class ActiveCommentManager(models.Manager):
+    def get_queryset(self):
+        return super(ActiveCommentManager,self).get_queryset().filter(active=True) # up to querset() is objects after that is new manager
+
 
 class Comment(models.Model):
     PRODUCT_STARS = [('1','very bad'),
@@ -35,6 +39,15 @@ class Comment(models.Model):
     stars = models.CharField(max_length=10, choices=PRODUCT_STARS)
     create_datetime = models.DateTimeField(auto_now_add=True)
     modified_datetime = models.DateTimeField(auto_now=True)
+    # manager
+    objects = models.Manager() # without new manager this line will be define automaticly by django but if we want to have new manager thiese two lines are necessary
+    active_comment_manager = ActiveCommentManager()
+    # objects.all()
+    # active_comment_manager.all()
+
+    # custom manager is a manager that give us our query
 
     def get_absolute_url(self):
         return reverse('product_detail' , args=[self.product.id])
+
+
