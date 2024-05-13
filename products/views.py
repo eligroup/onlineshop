@@ -1,3 +1,4 @@
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views import generic
 from django.shortcuts import render,get_object_or_404
 from .models import Product, Comment
@@ -33,9 +34,10 @@ class ProductDetailView(generic.DetailView):
 # view do sth
 
 
-class CommentDetailView(generic.CreateView):
+class CommentDetailView(SuccessMessageMixin,generic.CreateView):
     model = Comment
     form_class = CommentForm
+    success_message = "comment was created successfully"
 
     def form_valid(self, form): # default, this method call super form_valid in createview means, "return super().valid_form(form)
         #but we want to say before saving sent information in form ,add user and product on it

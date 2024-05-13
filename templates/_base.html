@@ -133,6 +133,16 @@
         </div>
     </div>
 </header>
+
+{% if messages %}
+
+            {% for message in messages %}
+                <div class="container float-sm-none alert alert-{{ message.tags }}" style="padding-top:80px">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif  %}
+</body>
 <!-- Header End -->
 {% block content %}{% endblock %}
 <!-- jQuery JS -->
