@@ -2,9 +2,10 @@ from django.contrib import admin
 from .models import Product,Comment
 
 
-class CommentInline(admin.TabularInline):
+class CommentInline(admin.TabularInline):# admin.StackedInline : change the view of admin panel
     model = Comment
     fields = ['author','body','stars','active']
+    extra = 1 # create an empty tab
 
 
 @admin.register(Product)

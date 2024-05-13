@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-13 10:27+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\models.py:9
+msgid "title"
+msgstr "عنوان"
+
+#: .\models.py:10
+
+msgid "description"
+msgstr "توضیحات محصول"
+
+#: .\models.py:11
+msgid "price"
+msgstr "قیمت"
+
+#: .\models.py:12
+msgid "available"
+msgstr "موجودی"
+
+#: .\models.py:13 .\models.py:44
+msgid "created date"
+msgstr "تاریخ ایجاد"
+
+#: .\models.py:14 .\models.py:45
+msgid "modified date"
+msgstr "تاریخ ویرایش"
+
+#: .\models.py:16
+
+msgid "products"
+msgstr "محصولات"
+
+#: .\models.py:32
+msgid "very bad"
+msgstr "خیلی بد"
+
+#: .\models.py:33
+msgid "bad"
+msgstr "بد"
+
+#: .\models.py:34
+msgid "normal"
+msgstr "معمولی"
+
+#: .\models.py:35
+msgid "good"
+msgstr "خوب"
+
+#: .\models.py:36
+msgid "perfect"
+msgstr "عالی"
+
+#: .\models.py:39
+msgid "text comment"
+msgstr "متن نظر"
+
+#: .\models.py:40
+msgid "product title"
+msgstr "عنوان محصول"
+
+#: .\models.py:41
+msgid "user"
+msgstr "کاربر"
+
+#: .\models.py:42
+msgid "publish status"
+msgstr "وضعیت انتشار"
+
+#: .\models.py:43
+msgid "point"
+msgstr "امتیاز"
+
+#: .\models.py:54 .\templates\products\product_detail.html:75
+
+msgid "comments"
+msgstr "نظرات"
+
+#: .\templates\products\product_detail.html:14
+msgid "product's attribute"
+msgstr "ویژگی محصول"
+
+#: .\templates\products\product_detail.html:38
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\products\product_detail.html:51
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\templates\products\product_detail.html:66
+msgid "product description"
+msgstr "توضیحات محصول"
+
+#: .\templates\products\product_detail.html:69
+msgid "product detail"
+msgstr "جزِیات محصول"
+
+#: .\templates\products\product_detail.html:114
+msgid "comments about:"
+msgstr "نظرات راجع به:"
+
+#: .\templates\products\product_detail.html:151
+msgid "write your comment"
+msgstr "نظر خود را بنویسید:"
+
+#: .\templates\products\product_detail.html:177
+msgid "submit"
+msgstr "ارسال"
