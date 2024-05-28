@@ -4,7 +4,7 @@ class Cart:
     def __init__(self,request):
         self.request = request
         self.session = request.session # request.user , request.session is different for each user
-        cart=self.session.get['cart']
+        cart=self.session.get('cart')
         if not cart:
             cart = self.session['cart'] = {}
 
@@ -21,7 +21,7 @@ class Cart:
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': quantity}
         else:
-            self.cart['product_id']['quantity'] += quantity
+            self.cart[product_id]['quantity'] += quantity
         self.save()
 
     def remove(self,product):
@@ -29,7 +29,6 @@ class Cart:
         if product_id in self.cart:
             del self.cart[product_id]
             self.save()
-
 
     def save(self):
         """
@@ -62,12 +61,6 @@ class Cart:
 
     def get_total_price(self):
         """get product.id then access to product by its id then sum all of them"""
-        product_id = self.cart.keys()
+        product_id = self.cart.keys() # {"1","2","3"}
         products = Product.objects.filter(id__in=product_id)
         return sum(product.price for product in products)
-
-
-
-
-
-
