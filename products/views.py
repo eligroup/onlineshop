@@ -3,6 +3,7 @@ from django.views import generic
 from django.shortcuts import render,get_object_or_404
 from .models import Product, Comment
 from .forms import CommentForm
+from cart.forms import AddProductToCart
 
 
 class ProductListView(generic.ListView):
@@ -25,6 +26,7 @@ class ProductDetailView(generic.DetailView):
     def get_context_data(self, **kwargs): # this method is for adding a context,line or... to model
         context = super().get_context_data(**kwargs) #default,context include all product information
         context['comment_form'] = CommentForm() # in addition to product information send form that its name is comment_form
+        # context['add_to_cart_form'] = AddProductToCart() # as we used of our html for this form it is not necssary to send this form
         return context #now product information and form as a new context will be shown
 
 # for showing all comment in the same template there are 2 ways : 1- make a  new template view and in form action in template
