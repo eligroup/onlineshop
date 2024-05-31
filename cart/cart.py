@@ -13,13 +13,15 @@ class Cart:
 
         self.cart = cart
 
-    def add(self, product, quantity=1):
+    def add(self, product, quantity=1, replace_current_quantity=False):
         """
         add new product or another previous product to cart .
         """
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': quantity}
+            self.cart[product_id] = {'quantity': 0}
+        if replace_current_quantity:# it is related to add quantity on product page or update qty on cart page
+            self.cart[product_id]['quantity'] = quantity
         else:
             self.cart[product_id]['quantity'] += quantity
         self.save()

@@ -1,4 +1,4 @@
-{% extends '_base.html'%}
+{% extends '_base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 {% load i18n %}
@@ -30,43 +30,61 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mb-md--50">
-                            <form class="cart-form" action="#">
+
                                 <div class="row no-gutters">
                                     <div class="col-12">
                                         <div class="table-content table-responsive">
                                             <table class="table text-center">
                                                 <thead>
-                                                    <tr>
-                                                        <th>&nbsp;</th>
-                                                        <th>عکس محصول</th>
-                                                        <th class="text-left">نام محصول</th>
-                                                        <th>قیمت</th>
-                                                        <th>مقدار</th>
-                                                        <th>مجموع</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                {% for item in cart %} <!--before in __iter__ we defined that we can have loop in cart -->
+                                                <tr>
+                                                    <th>&nbsp;</th>
+                                                    <th>عکس محصول</th>
+                                                    <th class="text-left">نام محصول</th>
+                                                    <th>قیمت</th>
+                                                    <th>مقدار</th>
+                                                    <th>مجموع</th>
+                                                </tr>
+                                                </thead>                                                <tbody>
 
+
+                                                    <!--before in __iter__ we defined that we can have loop in cart -->
+                                                    {% for item in cart %}
                                                     <tr>
-                                                        <td class="product-remove text-left"><a href=""><i class="flaticon flaticon-cross"></i></a></td>
-                                                        <td class="product-thumbnail text-left">
-                                                            <img src="assets/img/products/prod-10-70x88.jpg" alt="Product Thumnail">
+                                                        <td class="product-remove ">
+                                                            <a href="{% url "cart:cart_remove" item.product_obj.id %}">
+                                                                <i class="flaticon flaticon-cross"></i>
+                                                            </a>
                                                         </td>
-                                                        <td class="product-name wide-column">
+                                                        <td class="product-thumbnail ">
+                                                            <img src="assets/img/products/prod-10-70x88.jpg"
+                                                                 alt="Product Thumnail">
+                                                        </td>
+                                                        <td class="product-name ">
                                                             <h3>
-                                                                <a href="product-details.html">{{item.product_obj.title }}</a> <!-- check iter in cart.py -->
+                                                                <a href="{{ item.product_obj.get_absolute_url }}">{{ item.product_obj.title }}</a>
+                                                                <!-- check iter in cart.py -->
                                                             </h3>
                                                         </td>
                                                         <td class="product-price">
                                                             <span class="product-price-wrapper">
-                                                                <span class="money"> {{item.product_obj.price }} </span>
+                                                                <span class="money"> {{ item.product_obj.price }} </span>
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity">
-                                                            <div class="quantity">
-                                                                <input type="number" class="quantity-input" name="qty" id="qty-1" value="{{ item.quantity }}" min="1">
-                                                            </div>
+                                                            <form class="d-flex" method="POST"
+                                                                  action="{% url "cart:cart_add" item.product_obj.id %}">
+                                                                {% csrf_token %}
+                                                                <div class="quantity">
+                                                                    <input type="number" class="quantity-input"
+                                                                           name="quantity" id="qty-1"
+                                                                           value="{{ item.quantity }}" min="1">
+                                                                    {{ item.product_item_quantity_form.inplace }}
+                                                                     </div>
+                                                                    <button type="submit" class=" small"
+                                                                            value="update"><i class="fa fa-refresh " ></i>
+                                                                    </button>
+
+                                                            </form>
                                                         </td>
                                                         <td class="product-total-price">
                                                             <span class="product-price-wrapper">
@@ -75,6 +93,7 @@
                                                         </td>
                                                     </tr>
                                                 {% endfor %}
+
 
                                                 </tbody>
                                             </table>
@@ -86,7 +105,7 @@
                                         <button type="submit" class="cart-form__btn">خالی کردن سبد خرید</button>
                                     </div>
                                 </div>
-                            </form>
+
                         </div>
                         <div class="col-lg-4">
                             <div class="cart-collaterals">
@@ -113,7 +132,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a href="checkout.html" class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
+                                <a href="checkout.html"
+                                   class="btn btn-fullwidth btn-bg-red btn-color-white btn-hover-2">
                                     ثبت سفارش
                                 </a>
                             </div>
@@ -134,8 +154,10 @@
             <div class="searchform__body">
                 <p>Start typing and press Enter to search</p>
                 <form class="searchform">
-                    <input type="text" name="popup-search" id="popup-search" class="searchform__input" placeholder="Search Entire Store...">
-                    <button type="submit" class="searchform__submit"><i class="flaticon flaticon-magnifying-glass-icon"></i></button>
+                    <input type="text" name="popup-search" id="popup-search" class="searchform__input"
+                           placeholder="Search Entire Store...">
+                    <button type="submit" class="searchform__submit"><i
+                            class="flaticon flaticon-magnifying-glass-icon"></i></button>
                 </form>
             </div>
         </div>
