@@ -6,5 +6,6 @@ urlpatterns = [
     #path("<int:pk>/", views.product_detail_view, name="product_detail"),
     path("<int:pk>/", views.ProductDetailView.as_view(), name="product_detail"),
     #product_id is an enterance parameter for this url and access from product.id in template,
-    path('comment/<int:product_id>',views.CommentDetailView.as_view(), name="comment_create")
+    path('comment/<int:product_id>',views.CommentDetailView.as_view(), name="comment_create"),
+
 ]

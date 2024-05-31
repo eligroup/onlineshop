@@ -49,7 +49,8 @@ class Cart:
 
         for product in products:
             cart[str(product.id)]['product_obj'] = product
-        for item in cart.values():
+        for item in cart.values():# key is product id and value is product-obj and qty
+            item['total_price']=item['product_obj'].price * item['quantity'] # price is an attribute of modlel so for accessing we write .price
             yield item
 
     def __len__(self):
@@ -61,8 +62,18 @@ class Cart:
         del self.session['cart']
         self.save()
 
+
     def get_total_price(self):
         """get product.id then access to product by its id then sum all of them"""
-        product_id = self.cart.keys() # {"1","2","3"}
-        products = Product.objects.filter(id__in=product_id)
-        return sum(product.price for product in products)
+        products= self.cart.values() # {"1","2","3"}
+        return sum(item['quantity'] * item['product_obj'].price for item in products)
+
+        #products = Product.objects.filter(id__in=product_id)
+
+        # count =0
+        # for item in self.cart.values():
+        #     count+=(item['total_price'])
+        # return count
+        # products = Product.objects.filter(id__in=product_id)
+
+
