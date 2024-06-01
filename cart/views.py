@@ -1,4 +1,5 @@
 from django.shortcuts import render , get_object_or_404 , redirect
+from django.views.decorators.http import require_POST
 from .cart import Cart
 from .forms import AddProductToCart
 from products.models import Product
@@ -13,7 +14,7 @@ def cart_detail_view(request):
                                                                      })
     return render(request,'cart/cart_detail.html',{"cart":cart}) # as context we sent cart
 
-
+@require_POST
 def add_to_cart_view(request ,product_id): # we get request an product_id
     """ this view when is called that user click on 'add to card' on  product_detail.html and we should fill the form
     by sent information by user"""
@@ -33,6 +34,7 @@ def remove_from_cart_view(request , product_id):
     cart.remove(product)
     return redirect("cart:cart_detail")
 
+@require_POST
 def empty_cart(request):
     cart=Cart(request)
     cart.clear()

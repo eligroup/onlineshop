@@ -8,14 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-27 02:26+0330\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-06-01 12:12+0330\n"
+"PO-Revision-Date: 2024-06-01 12:26+0330\n"
+"Last-Translator:   <elahe@elahe.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
 #: .\models.py:8
 msgid "title"
@@ -85,7 +86,7 @@ msgstr "وضعیت انتشار"
 msgid "point"
 msgstr "امتیاز"
 
-#: .\models.py:56 .\templates\products\product_detail.html:75
+#: .\models.py:56 .\templates\products\product_detail.html:91
 msgid "comments"
 msgstr "نظرات"
 
@@ -93,34 +94,39 @@ msgstr "نظرات"
 msgid "product's attribute"
 msgstr "ویژگی محصول"
 
-#: .\templates\products\product_detail.html:38
+#: .\templates\products\product_detail.html:40
 msgid "$"
 msgstr "تومان"
 
-#: .\templates\products\product_detail.html:47
+#: .\templates\products\product_detail.html:51
+#: .\templates\products\product_list.html:87
 msgid "add to cart"
 msgstr "اضافه به سبد خرید"
 
-#: .\templates\products\product_detail.html:51
+#: .\templates\products\product_detail.html:64
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\templates\products\product_detail.html:66
+#: .\templates\products\product_detail.html:80
 msgid "product description"
 msgstr "توضیحات محصول"
 
-#: .\templates\products\product_detail.html:69
+#: .\templates\products\product_detail.html:84
 msgid "product detail"
 msgstr "جزِیات محصول"
 
-#: .\templates\products\product_detail.html:114
+#: .\templates\products\product_detail.html:133
 msgid "comments about:"
 msgstr "نظرات راجع به:"
 
-#: .\templates\products\product_detail.html:151
+#: .\templates\products\product_detail.html:173
 msgid "write your comment"
 msgstr "نظر خود را بنویسید:"
 
-#: .\templates\products\product_detail.html:177
+#: .\templates\products\product_detail.html:200
 msgid "submit"
 msgstr "ارسال"
+
+#: .\views.py:43
+msgid "comment was created successfully"
+msgstr "نظر با موفقیت ایجاد شد."
