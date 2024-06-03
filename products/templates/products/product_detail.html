@@ -6,17 +6,7 @@
 {% block title %}product detail{% endblock %}
 {% block content %}
     <!-- Breadcrumb area Start -->
-    <div class="breadcrumb-area bg-color ptb--90" data-bg-color="#f6f6f6">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="d-flex justify-content-between align-items-center flex-sm-row flex-column">
-                        <h1 class="page-title">{% trans "product's attribute" %} {{ product.title }}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% include "page_header.html" with header_name=product.title %}
     <!-- Breadcrumb area End -->
 
     <!-- Main Content Wrapper Start -->
@@ -173,11 +163,12 @@
                                                     <span class="reply-title pull-right">{% trans 'write your comment' %}</span>
                                                     <br>
 
-                                                    {#                                                      go to url:comment_create that its entrance is product.id . product.id will replaced in url addres in product_id pace #}
-                                                    <form method="post" action="{% url 'comment_create' product.id %}"
-                                                          class="form text-right">
-                                                        {% csrf_token %}
-                                                        {{ comment_form|crispy }}
+                                                    {#  go to url:comment_create that its entrance is product.id . product.id will replaced in url addres in product_id pace #}
+
+                                                        <form method="post" action="{% url 'comment_create' product.id %}"
+                                                              class="form text-right">
+                                                            {% csrf_token %}
+                                                            {{ comment_form|crispy }}
 
                                                         {#                                                            <div class="form-notes mb--20">#}
                                                         {#                                                                <p class="my-3"><span class="required">*</span>ایمیل شما برای دیگران نشان داده نمیشود.</p>#}
@@ -197,12 +188,17 @@
                                                         {#                                                            <div class="form__group">#}
                                                         {#                                                                <div class="form-row">#}
                                                         {#                                                                    <div class="col-12">#}
-                                                        <input type="submit" value="{% trans 'submit' %}"
-                                                               class="btn-submit">
+                                                            <input type="submit" value="{% trans 'submit' %}"
+                                                                   class="btn-submit">
+                                                </form>
+
+                                                    <p>{% trans "to write your comment please login" %}<a href="{% url 'account_login' %}" >login</a></p>
+
                                                 </div>
                                             </div>
                                         </div>
-                                        </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -216,6 +212,7 @@
     </div>
     </div>
     <!-- Main Content Wrapper End -->
+    {% include "cart/cart_sidebar.html"  %}
 {% endblock %}
 
 

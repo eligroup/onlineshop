@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-01 12:30+0330\n"
-"PO-Revision-Date: 2024-06-01 12:31+0330\n"
+"POT-Creation-Date: 2024-06-03 21:12+0330\n"
+"PO-Revision-Date: 2024-06-03 21:13+0330\n"
 "Last-Translator:   <elahe@elahe.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,14 +26,18 @@ msgstr "محصول با موفقیت به سبد خرید اضافه شد."
 msgid "product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حدف شد."
 
-#: .\templates\cart\cart_detail.html:104
+#: .\templates\cart\cart_detail.html:8
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: .\templates\cart\cart_detail.html:108
 msgid "your shopping cart is empty!"
 msgstr "کارت خرید شما خالی است."
 
-#: .\templates\cart\cart_detail.html:105
+#: .\templates\cart\cart_detail.html:109
 msgid "go shopping"
 msgstr "خرید کن!"
 
-#: .\templates\cart\cart_detail.html:113
+#: .\templates\cart\cart_detail.html:117
 msgid "empty your card"
 msgstr "خالی کردن کارت خرید"

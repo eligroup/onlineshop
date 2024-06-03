@@ -59,7 +59,8 @@ class Cart:
 
     def __len__(self):
         """we can count all product in cart"""
-        return len(self.cart.keys())
+        return sum(item['quantity'] for item in self.cart.values())
+               
 
     def clear(self):
         """ we should empty cart through session"""

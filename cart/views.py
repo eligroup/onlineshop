@@ -9,9 +9,10 @@ from products.models import Product
 def cart_detail_view(request):
     cart = Cart(request) # we sent request to cart and get session ,request and cart
     for item in cart:
-        item['product_item_quantity_form']=AddProductToCart(initial={'quantity':item['quantity'],
-                                                                     'inplace':True
-                                                                     })
+        item['product_update_quantity_form']=AddProductToCart(initial={
+            'quantity':item['quantity'],
+            'inplace':True,
+                  })
     return render(request,'cart/cart_detail.html',{"cart":cart}) # as context we sent cart
 
 @require_POST

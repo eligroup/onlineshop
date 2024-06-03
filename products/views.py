@@ -10,8 +10,10 @@ from cart.forms import AddProductToCart
 class ProductListView(generic.ListView):
     # model = Product
     queryset = Product.objects.filter(active=True)
+    product=Product.objects.all()
     template_name = 'products/product_list.html'
     context_object_name = 'products'
+
 
 
 
