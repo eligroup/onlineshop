@@ -8,6 +8,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100, verbose_name=_('title'))
     description = models.TextField(verbose_name=_('description'))
     price = models.PositiveIntegerField(default=0,verbose_name=_('price'))
+    image = models.ImageField(verbose_name=_("product image"),upload_to="product/product_cover", blank=True)
     active = models.BooleanField(default=True, verbose_name=_('available'))
     created_datetime = models.DateTimeField(auto_now_add=True, verbose_name=_('created date'))
     modified_datetime = models.DateTimeField(auto_now=True , verbose_name=_('modified date'))

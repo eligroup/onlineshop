@@ -10,7 +10,7 @@ class CommentInline(admin.TabularInline):# admin.StackedInline : change the view
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title','price','active']
+    list_display = ['title','price','image','active',]
     inlines = [
         CommentInline,
     ]
