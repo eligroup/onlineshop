@@ -3,8 +3,12 @@
 {% load static %}
 {% load i18n %}
 {% load comment_tags %}
+{% load jalali_tags %}
+{% load persian_translation-tags %}
+{% load humanize %}
 {% block title %}product detail{% endblock %}
 {% block content %}
+
     <!-- Breadcrumb area Start -->
     {% include "page_header.html" with header_name=product.title %}
     <!-- Breadcrumb area End -->
@@ -28,9 +32,9 @@
                             <p class="product-short-description mb--20">
                                 {{ product.description }}                                </p>
                             <div class="my-5 py-5 product-price-wrapper mb--25">
-                                <span class="money text-success"> {{ product.price }} تومان</span>
+                                <span class="money text-success"> {{ product.price|intcomma:False|translate_numbers_en_to_fa }} {% translate '$' %}</span>
                                 <span class="price-separator">-</span>
-                                <span class="money old-price text-danger">{{ product.price }} {% trans '$' %}</span>
+                                <span class="money old-price text-danger">{{ product.price|intcomma:False| translate_numbers_en_to_fa }} {% trans '$' %}</span>
                             </div>
                             <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                 <form method="post" action="{% url "cart:cart_add" product.id %}">
@@ -140,7 +144,7 @@
                                                                     <div class="review__meta">
                                                                         <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         <span class="review__dash">-</span>
-                                                                        <span class="review__published-date">{{ comment.create_datetime }}</span>
+                                                                        <span class="review__published-date">{{ comment.create_datetime | to_jalali:'%d %B %Y _ %H:%M:%S' |translate_numbers_en_to_fa }}</span>
 
                                                                     </div>
 
@@ -196,6 +200,11 @@
                                                 </form>
 
                                                     <p>{% trans "to write your comment please login" %}<a href="{% url 'account_login' %}" >login</a></p>
+
+
+
+
+    <!-- Remaining template content -->
 
                                                 </div>
                                             </div>

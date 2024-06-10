@@ -42,6 +42,8 @@ def empty_cart(request):
     return redirect("cart:cart_detail")
 
 
-
+def test_farsi(request):
+    quantity = 1  # Example quantity
+    return render(request, 'cart/test_farsi.html', {'quantity': quantity})
 
 # Create your views here.

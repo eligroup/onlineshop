@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-03 21:12+0330\n"
-"PO-Revision-Date: 2024-06-03 21:13+0330\n"
+"POT-Creation-Date: 2024-06-06 11:25+0330\n"
+"PO-Revision-Date: 2024-06-06 11:27+0330\n"
 "Last-Translator:   <elahe@elahe.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,18 +26,27 @@ msgstr "محصول با موفقیت به سبد خرید اضافه شد."
 msgid "product successfully removed from cart"
 msgstr "محصول با موفقیت از سبد خرید حدف شد."
 
-#: .\templates\cart\cart_detail.html:8
+#: .\templates\cart\cart_detail.html:10
 msgid "Cart"
 msgstr "سبد خرید"
 
-#: .\templates\cart\cart_detail.html:108
+#: .\templates\cart\cart_detail.html:78 .\templates\cart\cart_detail.html:99
+#: .\templates\cart\cart_detail.html:149
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\cart\cart_detail.html:88
+msgid "1"
+msgstr "١"
+
+#: .\templates\cart\cart_detail.html:110
 msgid "your shopping cart is empty!"
 msgstr "کارت خرید شما خالی است."
 
-#: .\templates\cart\cart_detail.html:109
+#: .\templates\cart\cart_detail.html:111
 msgid "go shopping"
 msgstr "خرید کن!"
 
-#: .\templates\cart\cart_detail.html:117
+#: .\templates\cart\cart_detail.html:119
 msgid "empty your card"
 msgstr "خالی کردن کارت خرید"

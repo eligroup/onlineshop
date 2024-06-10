@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     # 3 rd party
+    'jalali_date',
     'rosetta',
     'allauth',
     'allauth.account',
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
+    'persian_translation.apps.PersianTranslationConfig'
 
 ]
 

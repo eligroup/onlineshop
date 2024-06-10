@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.shortcuts import reverse
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext,gettext_lazy as _
@@ -10,7 +11,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0,verbose_name=_('price'))
     image = models.ImageField(verbose_name=_("product image"),upload_to="product/product_cover", blank=True)
     active = models.BooleanField(default=True, verbose_name=_('available'))
-    created_datetime = models.DateTimeField(auto_now_add=True, verbose_name=_('created date'))
+    created_datetime = models.DateTimeField(_('created date'), default=timezone.now)
     modified_datetime = models.DateTimeField(auto_now=True , verbose_name=_('modified date'))
     class Meta:
         verbose_name = "product"
