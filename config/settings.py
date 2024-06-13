@@ -49,9 +49,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'crispy_forms',
     'crispy_bootstrap5',
+    'ckeditor',
 
     # local apps
     'accounts.apps.AccountsConfig',
+    'orders.apps.OrdersConfig',
     'pages.apps.PagesConfig',
     'products.apps.ProductsConfig',
     'cart.apps.CartConfig',
@@ -163,6 +165,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR , 'static'),]
+STATIC_ROOT = os.path.join(BASE_DIR,'static_files')
 
 # Media
 MEDIA_URL = '/media/'
