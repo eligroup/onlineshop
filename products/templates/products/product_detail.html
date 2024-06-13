@@ -32,9 +32,9 @@
                             <p class="product-short-description mb--20">
                                 {{ product.short_description |truncatewords:50 }}                                </p>
                             <div class="my-5 py-5 product-price-wrapper mb--25">
-                                <span class="money text-success"> {{ product.price|intcomma:False|translate_numbers_en_to_fa }} {% translate '$' %}</span>
+                                <span class="money text-success"> {{ product.price|intcomma:False|translate_numbers}} {% translate '$' %}</span>
                                 <span class="price-separator">-</span>
-                                <span class="money old-price text-danger">{{ product.price|intcomma:False| translate_numbers_en_to_fa }} {% trans '$' %}</span>
+                                <span class="money old-price text-danger">{{ product.price|intcomma:False| translate_numbers }} {% trans '$' %}</span>
                             </div>
                             <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
                                 <form method="post" action="{% url "cart:cart_add" product.id %}">
@@ -144,7 +144,7 @@
                                                                     <div class="review__meta">
                                                                         <strong class="review__author px-4">{{ comment.author.username }}</strong>
                                                                         <span class="review__dash">-</span>
-                                                                        <span class="review__published-date">{{ comment.create_datetime | to_jalali:'%d %B %Y _ %H:%M:%S' |translate_numbers_en_to_fa }}</span>
+                                                                        <span class="review__published-date">{{ comment.create_datetime | to_jalali:'%d %B %Y _ %H:%M:%S' |translate_numbers }}</span>
 
                                                                     </div>
 

@@ -3,6 +3,24 @@ from babel.numbers import format_decimal
 
 register = template.Library()
 
+
+def translate_numbers_en_to_fa(number):
+    en_num = "0123456789"
+    fa_num = "٠١٢٣٤٥٦٧٨٩"
+    persian_number = str(number).maketrans(en_num , fa_num)
+    return str(number).translate(persian_number)
+
+
+@register.filter
+def translate_numbers(value):
+    try:
+        return translate_numbers_en_to_fa(value)
+    except (ValueError, TypeError):
+        return value
+
+
+
+
 def convert_to_arabic_numerals(number):
     arabic_numerals = '٠١٢٣٤٥٦٧٨٩'
     return ''.join(arabic_numerals[int(digit)] if digit.isdigit() else digit for digit in str(number))
@@ -30,12 +48,7 @@ def arabic_numerals(value):
 #         return value
 
 
-@register.filter
-def translate_numbers_en_to_fa(value):
-    en_num = "0123456789"
-    fa_num = "٠١٢٣٤٥٦٧٨٩"
-    persian_number = str(value).maketrans(en_num , fa_num)
-    return str(value).translate(persian_number)
+
 
 
 #
