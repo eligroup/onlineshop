@@ -1,8 +1,11 @@
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.views.decorators.http import require_POST
+from django.contrib import messages
+from django.utils.translation import gettext as _
 from .cart import Cart
 from .forms import AddProductToCart
 from products.models import Product
+
 
 
 
@@ -27,7 +30,13 @@ def add_to_cart_view(request ,product_id): # we get request an product_id
         quantity = cleaned_data['quantity']
         cart.add(product , quantity, replace_current_quantity=cleaned_data['inplace']) # now we should say add product
         # and quantity to cart. we do this with add method of cart.py.
-    return redirect("cart:cart_detail") # here cart is app name defined in urls.py
+        if cleaned_data['inplace']:
+
+
+
+            return redirect("cart:cart_detail") # here cart is app name defined in urls.py
+        else:
+            return redirect("product_list")  # here cart is app name defined in urls.py
 
 def remove_from_cart_view(request , product_id):
     cart = Cart(request)
@@ -38,8 +47,12 @@ def remove_from_cart_view(request , product_id):
 @require_POST
 def empty_cart(request):
     cart=Cart(request)
-    cart.clear()
-    return redirect("cart:cart_detail")
+    if len(cart):
+        cart.clear()
+        messages.success(request,_('your cart cleared successfully'))
+    else:
+        messages.warning(request,_('your cart ia already empty'))
+    return redirect("cart:cart_list")
 
 
 def test_farsi(request):

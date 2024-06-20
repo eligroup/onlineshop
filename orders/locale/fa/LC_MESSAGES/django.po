@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-13 09:45+0330\n"
-"PO-Revision-Date: 2024-06-13 09:58+0330\n"
+"POT-Creation-Date: 2024-06-13 21:54+0330\n"
+"PO-Revision-Date: 2024-06-13 21:56+0330\n"
 "Last-Translator:   <elahe@elahe.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\forms.py:13
+msgid "if you have any notes please enter here"
+msgstr "یادداشت خود را اینجا وارد کنید..."
 
 #: .\models.py:9
 msgid "user"
@@ -62,10 +66,29 @@ msgstr "سفارشات"
 msgid "order"
 msgstr "سفارش"
 
-#: .\models.py:31
+#: .\models.py:31 .\templates\orders\order_create.html:73
 msgid "product name"
 msgstr "نام محصول"
 
-#: .\models.py:36
+#: .\models.py:37
 msgid "order items"
 msgstr "آیتمهای سفارش"
+
+#: .\templates\orders\order_create.html:11
+#, fuzzy
+#| msgid "order"
+msgid "Order"
+msgstr "سفارش"
+
+#: .\templates\orders\order_create.html:74
+msgid "price"
+msgstr "قیمت"
+
+#: .\templates\orders\order_create.html:83
+#: .\templates\orders\order_create.html:96
+msgid "$"
+msgstr "تومان"
+
+#: .\templates\orders\order_create.html:95
+msgid "total price"
+msgstr "مجموع قیمت"

@@ -73,6 +73,12 @@ class Cart:
         products= self.cart.values() # {"1","2","3"}
         return sum(item['quantity'] * item['product_obj'].price for item in products)
 
+    def is_empty(self): # this method says if cart id empty in template not show go to cart buttond
+        if self.cart:
+            return False
+        else:
+            return True
+
         #products = Product.objects.filter(id__in=product_id)
 
         # count =0

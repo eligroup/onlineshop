@@ -33,8 +33,8 @@ class OrderItem(models.Model):
     price = models.PositiveIntegerField() # we should save the price in database for knowing the history of product price but in cart price should be upgared
     class Meta:
         verbose_name = "order item"
-        verbose_name_plural = _('order items')
 
+        verbose_name_plural = _('order items')
     def __str__(self):
         return f'order item {self.id}|product:{self.product} x {self.quantity}| price:{self.price}'
 
