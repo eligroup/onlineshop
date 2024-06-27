@@ -14,6 +14,9 @@ class Order(models.Model):
     phone_number = models.CharField(_('phone number'),max_length=12, )
     address = models.CharField(_('address'),max_length=700)
     order_notes = models.CharField(_('notes'),max_length=700, blank=True)
+    zarinpal_authority = models.CharField(max_length=255, blank=True) # we should save authority from zarinpal
+    zarinpal_ref_id = models.CharField(max_length=255, blank=True)
+    zarinpal_data = models.TextField(blank=True)
 
     datetime_created = models.DateTimeField(_('date created'),auto_now_add=True)
     datetime_modified = models.DateTimeField(_('date modified'),auto_now=True)
@@ -24,6 +27,13 @@ class Order(models.Model):
 
     def __str__(self):
         return f'order {self.id}'
+
+    def get_total_price(self):
+        return sum(item.price * item.quantity for item in self.items.all())
+        # result=o
+        # for item in self.items.all():
+        #     result+=item.price *item.quantity
+        # return result
 
 
 class OrderItem(models.Model):
